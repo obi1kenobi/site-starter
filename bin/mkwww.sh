@@ -15,10 +15,12 @@ function build_page () {
     # $1 -> dest dir, relative to $BUILD (webroot), without leading /
     # $2 -> source md, full path
     # $3 -> page title (quoted for shell to give as single argument)
+    # $4 -> file name (optional, defaults to "index")
     mkdir -p "$BUILD"/"$1"
+    filename="${4:-index}"
     fnbody=$(mktemp)
     pandoc --from markdown_strict+table_captions+header_attributes+implicit_header_references+simple_tables+fenced_code_blocks+pipe_tables+fenced_divs+link_attributes -w html -o "$fnbody" "$2"
-    "$BIN"/strformat.py body="$fnbody" title="$3" head="" < "$WWWSRC"/template.html > "$BUILD"/"$1"/index.html
+    "$BIN"/strformat.py body="$fnbody" title="$3" head="" < "$WWWSRC"/template.html > "$BUILD"/"$1"/"$4".html
     rm "$fnbody"
 }
 
@@ -33,20 +35,20 @@ function build_pages () {
     mkdir -p "$BUILD"/"$1"
 
     # build index
-    build_page "$1" "$BUILD"/"$1"/index.md "index"
+    build_page "$1" "$BUILD"/"$1"/index.md "index" "index"
 
     # build individual pages
     for postpath in $(find "$SECTION" -name '*.md'); do
         post=${postpath##$SECTION}
         postname=${post%.md}
-        build_page "$1"/"$postname" "$postpath" "$postname"
+        build_page "$1"/"$postname" "$postpath" "$postname" "$postname"
     done
 }
 
-build_page . "$WWWSRC"/index.md "Index"
-build_page . "$WWWSRC"/about.md "About"
-build_page . "$WWWSRC"/hidden.md "Hidden"
-build_page . "$WWWSRC"/querying.md "Querying"
+build_page . "$WWWSRC"/index.md "Index" "index"
+build_page . "$WWWSRC"/about.md "About" "about"
+build_page . "$WWWSRC"/hidden.md "Hidden" "hidden"
+build_page . "$WWWSRC"/querying.md "Querying" "querying"
 
 # redirects
 cp "$WWWSRC"/redirects.tsv "$BUILD"/_redirects
