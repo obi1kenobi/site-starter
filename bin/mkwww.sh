@@ -44,6 +44,9 @@ function build_pages () {
 }
 
 build_page . "$WWWSRC"/index.md "Index"
+build_page . "$WWWSRC"/about.md "About"
+build_page . "$WWWSRC"/hidden.md "Hidden"
+build_page . "$WWWSRC"/querying.md "Querying"
 
 # redirects
 cp "$WWWSRC"/redirects.tsv "$BUILD"/_redirects
