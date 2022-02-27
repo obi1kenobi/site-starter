@@ -15,6 +15,6 @@ I've written several blog posts describing the compiler and its use at [Kensho](
 More recently, I've successfully extended the same ideas beyond querying just databases, and added support for querying APIs, raw files, ML models, or any other data source.
 
 For example, here is an example query over the source code files of GraphQL compiler itself, asking the question "Find all Python classes whose definition starts with a comment."
-https://twitter.com/PredragGruevski/status/1344725604520878080
+[https://twitter.com/PredragGruevski/status/1344725604520878080](https://twitter.com/PredragGruevski/status/1344725604520878080)
 
 If you're interested in querying across API and dataset boundaries, please reach out — I'd love to hear about your use case. My [Twitter](https://twitter.com/PredragGruevski) DMs are open!
