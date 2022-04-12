@@ -5,7 +5,7 @@ to many seemingly simple questions. This is a problem I've been passionate about
 
 While working at [Kensho](https://www.kensho.com/), I started a query compiler project designed to empower everyone (even non-engineers) to make use of datasets available to them. The query system is responsible for creating a schema covering all available data across all databases, and allows the user to write cross-database queries without needing to know about the location and representation of the various bits of data involved in the query.
 
-The project I built at [Kensho](https://www.kensho.com/) is now open source on GitHub, under the name [GraphQL compiler](https://github.com/kensho-technologies/graphql-compiler) — in retrospect, a name I somewhat regret name since the query language uses GraphQL-compatible syntax but has significant differences in query semantics.
+The project I built at [Kensho](https://www.kensho.com/) is now open source on GitHub, under the name [GraphQL compiler](https://github.com/kensho-technologies/graphql-compiler) — in retrospect, a name I somewhat regret since the query language uses GraphQL-compatible syntax but has significant differences in query semantics.
 
 I've written several blog posts describing the compiler and its use at [Kensho](https://www.kensho.com/):
 
